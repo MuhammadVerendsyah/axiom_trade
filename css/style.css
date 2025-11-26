@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 60vw;
+  aspect-ratio: 1252 / 819;
+}
+
+.box {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 6px;
+  animation: expand 2.5s cubic-bezier(0.76,0,0.24,1) infinite;
+  background:
+    radial-gradient(133% 144% at 0% 100%, #526FFF 0%, transparent 35%),
+    radial-gradient(175% 148% at 100% 0%, #526FFF 0%, transparent 30%),
+    radial-gradient(105% 133% at 50% 50%, transparent 75%, rgba(82, 111, 255, 0.72) 100%),
+    #000;
+  background-size: 150% 150%,150% 150%,150% 150%;
+  background-position: 0% 100%,100% 0%,50% 50%;
+  animation-name: expand, gradientAnim;
+  animation-duration: 2.5s, 6s;
+  animation-timing-function: cubic-bezier(0.76,0,0.24,1), linear;
+  animation-iteration-count: infinite, infinite;
+}
+
+.box-1 { width: 100%; animation-delay: 0s; }
+.box-2 { width: 85%; animation-delay: 0.15s; }
+.box-3 { width: 70%; animation-delay: 0.3s; }
+.box-4 { width: 55%; animation-delay: 0.45s; }
+.box-5 { width: 35%; animation-delay: 0.6s; }
+.box-6 { width: 15%; animation-delay: 0.75s; }
+
+@keyframes expand {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes gradientAnim {
+  0% { background-position: 0% 100%,100% 0%,50% 50%; }
+  50% { background-position: 50% 50%,50% 50%,50% 50%; }
+  100% { background-position: 0% 100%,100% 0%,50% 50%; }
+}
